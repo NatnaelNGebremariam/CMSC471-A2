@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Weather Visualization</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Interactive Weather Visualization</h1>
+
+        <div id="intro">
+            <h2>About the Dataset</h2>
+            <p>
+                This visualization displays <strong>weather data</strong> from various weather stations,
+                tracking changes over time based on different factors such as temperature, precipitation, and wind speed.
+            </p>
+
+            <h2>How to Use This Visualization</h2>
+            <ul>
+                <li><strong>State Dropdown:</strong> Select a state to filter the data.</li>
+                <li><strong>Month Slider:</strong> Slide to view data for a specific month.</li>
+                <li><strong>X & Y Axis Dropdowns:</strong> Choose variables for the scatter plot.</li>
+                <li><strong>Bubble Chart:</strong> Visualizes temperature, precipitation, and wind speed.</li>
+                <li><strong>Color Coding:</strong> Each weather station is assigned a unique color based on elevation.</li>
+            </ul>
+        </div>
+
+        <div id="controls">
+            <!-- State Selector Dropdown -->
+            <label for="stateSelector">State:</label>
+            <select id="stateSelector"></select>
+
+            <!-- X-Axis Variable Selector -->
+            <label for="xVariable">X:</label>
+            <select id="xVariable" class="variable"></select>
+
+            <!-- Y-Axis Variable Selector -->
+            <label for="yVariable">Y:</label>
+            <select id="yVariable" class="variable"></select>
+
+            <!-- Month Slider -->
+            <label for="monthSlider">Month:</label>
+            <input type="range" id="monthSlider" min="1" max="12" step="1" value="1">
+            <span id="monthValue">January</span>
+        </div>
+
+        <div id="vis"></div> <!-- Holds visualization (the bubble chart) -->
+
+        <!-- Tooltip for hover information -->
+        <div id="tooltip" style="position: absolute; display: none; background: white; padding: 5px; border: 1px solid black;"></div>
+    </div>
+
+    <!-- Load D3.js -->
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="js/script.js"></script>
+</body>
+
+</html>
