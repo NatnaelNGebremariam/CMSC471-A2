@@ -31,3 +31,7 @@ button {
     margin-right: 10px;
     color: red;
 }
+
+circle{
+    opacity: 0.10;
+}
