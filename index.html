@@ -21,7 +21,8 @@
 
             <h2>How to Use This Visualization</h2>
             <ul>
-                <li><strong>State Dropdown:</strong> Select a state to filter the data.</li>
+                <li><strong>Station Dropdown:</strong> Select a station to filter available states and data.</li>
+                <li><strong>State Dropdown:</strong> Select a state based on the chosen station.</li>
                 <li><strong>Month Slider:</strong> Slide to view data for a specific month.</li>
                 <li><strong>X & Y Axis Dropdowns:</strong> Choose variables for the scatter plot.</li>
                 <li><strong>Bubble Chart:</strong> Visualizes temperature, precipitation, and wind speed.</li>
@@ -30,28 +31,33 @@
         </div>
 
         <div id="controls">
+            <!-- Station Selector Dropdown -->
+            <label for="stationSelector">Station:</label>
+            <select id="stationSelector"></select>
+            
             <!-- State Selector Dropdown -->
             <label for="stateSelector">State:</label>
             <select id="stateSelector"></select>
 
             <!-- X-Axis Variable Selector -->
-            <label for="xVariable">X:</label>
-            <select id="xVariable" class="variable"></select>
+            <label for="xSelector">X:</label>
+            <select id="xSelector" class = " variable"></select>
 
             <!-- Y-Axis Variable Selector -->
-            <label for="yVariable">Y:</label>
-            <select id="yVariable" class="variable"></select>
+            <label for="ySelector">Y:</label>
+            <select id="ySelector" class = " variable"></select>
 
             <!-- Month Slider -->
             <label for="monthSlider">Month:</label>
             <input type="range" id="monthSlider" min="1" max="12" step="1" value="1">
-            <span id="monthValue">January</span>
+            <span id="monthLabel">January</span>
+            <span id="monthLabel"></span>
         </div>
 
         <div id="vis"></div> <!-- Holds visualization (the bubble chart) -->
 
         <!-- Tooltip for hover information -->
-        <div id="tooltip" style="position: absolute; display: none; background: white; padding: 5px; border: 1px solid black;"></div>
+        <div id="tooltip" style="position: absolute; display: none; background: white; padding: 5px; border: 1px solid black; pointer-events: none;"></div>
     </div>
 
     <!-- Load D3.js -->
