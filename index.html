@@ -15,8 +15,24 @@
         <div id="intro">
             <h2>About the Dataset</h2>
             <p>
-                This visualization displays <strong>weather data</strong> from various weather stations,
-                tracking changes over time based on different factors such as temperature, precipitation, and wind speed.
+                Our visualization is based on a weather dataset containing over <strong>416,000 records</strong> from various weather stations across the United States.
+                The dataset is provided by the NOAA Daily Global Historical Climatology Networkincludes important meteorological variables such as temperature
+                (TMIN, TMAX, TAVG), wind speed (AWND, WSF5),precipitation (PRCP), and snowfall (SNOW, SNWD). The goal of this project is to explore relationships 
+                between these variables and allow users to interactively analyze weather patterns. 
+            </p>
+            <p>
+                Our visualization is implemented using D3.js and presents a scatterplot. We explored alternative visualizations, such as line charts and bar graphs, 
+                but ultimately chose a scatterplot due to its ability to depict correlations between multiple variables simultaneously.
+            </p>
+            <h2>Development Process</h2>
+            <p>
+                Our Group had 3 members. Two of the group members were incharge of analyzing the data set and creating the scatterplot using D3 which took <b>10 hours.</b>
+                The other group member helped with debugging, doing the write up on the webpage, and recording the demo video which took <b>2 hours.</b> We chose the
+                NOAA weather data set because <b>there is a lot of information that can be extracted.</b> Before we started to code we know that for this particular data set we wanted the user to be able to <b>filter through stations and see the weather in all or specific states.</b>
+                To design the scatter plot first <b>we gathered possible options users can make in order to filter through the data such as: "Station", "State" and etc.</b> Then <b>we then we made sure the user has a slider for the months.</b> Our main challenges while developing the scatter
+                plot was <b>organizing the data</b> we tried <b> to represent all the weathers orginially by state, but there was a issue of having data overlapping as the same state would have repeated or slightly different data</b> this alone took <b>5 hours to resolve.</b>  Some aspects that were rather straightforward to implement were 
+                <b>the slider and dropdown menu</b> because <b>we were able to practice this feature during our labs.</b> If we were to do this project again we would change <b>the station dropdown by removing it, and allowing comparison of weathers between states </b> because <b> users would want to compare the weather between different states.</b>
+                
             </p>
 
             <h2>How to Use This Visualization</h2>
@@ -28,7 +44,52 @@
                 <li><strong>Bubble Chart:</strong> Visualizes temperature, precipitation, and wind speed.</li>
                 <li><strong>Color Coding:</strong> Each weather station is assigned a unique color based on elevation.</li>
                 <li><strong>Zoom Feature:</strong> You can zoom unto the bubbles in order to see clearly!</li>
+                
             </ul>
+            <h2>Weather Data Abbreviations</h2>
+            <table style="padding-right: 20rem;">
+                <tr>
+                    <th>Abbreviation</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td>PRCP</td>
+                    <td>Precipitation (inch)</td>
+                </tr>
+                <tr>
+                    <td>SNOW</td>
+                    <td>Snowfall (inch)</td>
+                </tr>
+                <tr>
+                    <td>SNWD</td>
+                    <td>Snow depth (inch)</td>
+                </tr>
+                <tr>
+                    <td>TMAX</td>
+                    <td>Maximum temperature (F)</td>
+                </tr>
+                <tr>
+                    <td>TMIN</td>
+                    <td>Minimum temperature (F)</td>
+                </tr>
+                <tr>
+                    <td>TAVG</td>
+                    <td>Average temperature (F)</td>
+                </tr>
+                <tr>
+                    <td>AWND</td>
+                    <td>Average daily wind speed (miles / hour)</td>
+                </tr>
+                <tr>
+                    <td>WSF5</td>
+                    <td>Fastest 5-second wind speed (miles / hour)</td>
+                </tr>
+                <tr>
+                    <td>WDF5</td>
+                    <td>Direction of fastest 5-second wind (degrees)</td>
+                </tr>
+            </table>
+        
         </div>
 
         <div id="controls">
@@ -52,7 +113,6 @@
             <label for="monthSlider">Month:</label>
             <input type="range" id="monthSlider" min="1" max="12" step="1" value="1">
             <span id="monthLabel">January</span>
-            <span id="monthLabel"></span>
         </div>
 
         <div id="vis"></div> <!-- Holds visualization (the bubble chart) -->
@@ -67,14 +127,3 @@
 </body>
 
 </html>
-
-<!-- // let zoomies = zoom().on('zoom',zoomController); //Allows to zoom
-
-// function zoomController(v){
-//     select('svg g')
-//     .attr('transform',v.transform);
-// }
-
-// function setUpZoom(){
-//     select('svg').call(zoomies)
-// } -->
